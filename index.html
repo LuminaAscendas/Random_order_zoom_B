@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true" />
+    <title>Random order zoom B</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/swiper.min.css" />
+    <script type="text/javascript" src="assets/js/lib/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="assets/js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="assets/js/data.js"></script>
+    <script type="text/javascript" src="assets/js/lib/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
+</head>
+<body>
+	<div role='main' style='display:none'></div>
+	<div role='navigation' style='display:none'></div>
+	<a href="#begin_container" id='linkId' >Skip to main content</a>
+	<div id='whole_container' >
+		<div class="preload">
+            <div class="loader"></div>
+        </div> 
+		<div id='begin_page'>
+			<div id='begin_focus' role='none'></div>
+			<img id='begin_container' aria-label='Earth Orbit' role='img' src='assets/images/static.png' alt='Earth orbit'/>
+			<div role='button' id='begin_btn' aria-label='Begin'>Begin</div>
+			<div id='begin_end_focus'  role='none'></div> 
+		</div>
+		<div id='focus_guard_1' role='none'>???</div>
+		<div id='text_Div'>
+			<h1 id='text_container' role='heading' aria-level='1'></h1>
+			<div id='heading_text' role='none'></div>
+		</div>
+		<div id='responsive_container'>
+			<div id='image_container'>
+					<img class="imgDiv" src='assets/images/blank.png' alt='Earth orbit'/>
+					<div role='button'  class='hotspot' id='toggle_1' aria-label='Hotspot 1 of 4'>?</div>
+					<div role='button'  class='hotspot' id='toggle_2' aria-label='Hotspot 2 of 4'>?</div>
+					<div role='button'  class='hotspot' id='toggle_3' aria-label='Hotspot 3 of 4'>?</div>
+					<div role='button'  class='hotspot' id='toggle_4' aria-label='Hotspot 4 of 4'>?</div>
+				<div class="popupContainer">
+					<h1 class="popupHeading" role='none'>heading</h1>
+					<div class="popupText" role='none'></div>
+					<div class="close-btn" id="close-id" role='button' aria-label='close'></div>
+				</div>
+				<div class="reset-btn" id="reset-btn" role='button' aria-label='reset'></div>
+			</div>
+			<div role='button' id='restart' aria-label='Reset'>Reset</div>
+		</div>
+		<div id='focus_guard_2' role='none'>???</div>
+	</div>
+	
+<script>
+		$.holdReady(true);
+		var preloadComplete=false;
+		$.getScript("./assets/js/lib/preloadjs-0.6.2.min.js", function() {
+			$.holdReady(false);
+			manifest = [
+				"assets/images/common/loading.gif",
+				"assets/images/common/close_btn.png",
+				"assets/images/blank.png",
+				"assets/images/static.png",
+			];
+			preload = new createjs.LoadQueue(true);
+			preload.addEventListener("progress", function() {
+				//console.log('Updating preloading progress...'+Math.round(preload.progress*100)+"%");
+			});
+			preload.addEventListener("complete", function(){
+				$('.preload').fadeOut();
+			});
+			preload.setMaxConnections(5);
+			preload.loadManifest(manifest);
+		});
+</script>
+<script type="text/javascript" src="assets/js/lib/preloadjs-0.6.2.min.js"></script>
+<script type="text/javascript" src="assets/js/lib/fitToScreen.js"></script>
+</body>
+</html>
