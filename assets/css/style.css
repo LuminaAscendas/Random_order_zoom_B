@@ -96,7 +96,7 @@ h1{
 	width:666px;
 /*	padding: 2px;*/
 	position:relative;
-	top:0px;
+	top:35px;
 	height:420px;
 	display:none;
 }
@@ -477,6 +477,10 @@ clicked {
 } */
  #heading_text{
  display:none;
+ top:20px;
+ width:95%;
+ height:auto;
+ position:relative;
  }
 .reset-btn{
   width:26px;
